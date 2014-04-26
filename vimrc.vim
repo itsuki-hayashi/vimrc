@@ -1,7 +1,7 @@
 " Edsger Lin's vimrc
 "
 " Maintainer:   Edsger Lin <edsgerlinATgmailDOTcom>
-" Last change:  2013-01-14
+" Last change:  2014-04-26
 "
 " To use it, copy it to
 "   for Unix and OS/2:  ~/.vimrc
@@ -157,7 +157,8 @@ if has("autocmd")
         \ endif
 
     augroup END
-
+    " Handle .md file correctly(Vim set filetype to Modula 2 by default).
+    autocmd BufRead,BufNewFile *.md set filetype=markdown
     " Enable javacomplete plugin
     autocmd Filetype java setlocal omnifunc=javacomplete#Complete
 
@@ -171,13 +172,3 @@ if !exists(":DiffOrig")
         \ | wincmd p | diffthis
 endif
 
-"           __     ___             _       _   _  ___ _____            "
-"           \ \   / (_)_ __ ___   (_)___  | | | |/ _ \_   _|           "
-"            \ \ / /| | '_ ` _ \  | / __| | |_| | | | || |             "
-"             \ V / | | | | | | | | \__ \ |  _  | |_| || |             "
-"              \_/  |_|_| |_| |_| |_|___/ |_| |_|\___/ |_|             "
-"                   ____ _____ _   _ _____ _____ _ _                   "
-"                  / ___|_   _| | | |  ___|  ___| | |                  "
-"                  \___ \ | | | | | | |_  | |_  | | |                  "
-"                   ___) || | | |_| |  _| |  _| |_|_|                  "
-"                  |____/ |_|  \___/|_|   |_|   (_|_)                  "
