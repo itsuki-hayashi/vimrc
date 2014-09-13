@@ -4,6 +4,19 @@
 " Last change:  2014-09-14
 
 set nocompatible
+" Vundle config begin.
+set runtimepath+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'vim-perl/vim-perl' " Support for Perl 6
+
+" All of your Plugins must be added before the following line
+call vundle#end()
+filetype plugin indent on
+
+
 
 " show English messages ignoring system language.
 if has("unix")
