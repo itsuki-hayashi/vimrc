@@ -1,24 +1,11 @@
 " Edsger Lin's vimrc
 "
-" Maintainer:   Edsger Lin <edsgerlinATgmailDOTcom>
-" Last change:  2014-04-26
-"
-" To use it, copy it to
-"   for Unix and OS/2:  ~/.vimrc
-"   for Amiga:  s:.vimrc
-"   for MS-DOS and Win32:  $VIM\_vimrc
-"   for OpenVMS:  sys$login:.vimrc
+" Maintainer:   Edsger Lin <edsgerlin@gmail.com>
+" Last change:  2014-09-14
 
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-    finish
-endif
-
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
 set nocompatible
 
-" show English messages only
+" show English messages ignoring system language.
 if has("unix")
     language C.UTF-8
 elseif has("win32")
@@ -28,7 +15,6 @@ endif
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-"set backup             " keep a backup file
 set nobackup            " do not keep a backup file, use versions instead
 set history=300         " keep 300 lines of command line history
 set ruler               " show the cursor position all the time
@@ -52,12 +38,8 @@ set shiftround          " (in|out)dent to nearest tabstops
 set expandtab           " convert all tabs to spaces
 set smarttab            " use spaces like a tab
 set fileformat=unix     " use unix style end-of-line
-" try following end-of-lines when reading a file
-set fileformats=unix,dos,mac
-
-if v:version >= 703     " if Vim 7.3 or later
-    set colorcolumn=81  " set colored right-margin at column 81
-endif
+set fileformats=unix,dos,mac " try following end-of-lines when reading a file
+set colorcolumn=81  " set colored right-margin at column 81
 
 if has('multi_byte')
     " try following encodings when reading a file 
@@ -82,11 +64,11 @@ if has("gui_running")   " start gvimrc
     if has("gui_gtk2")
         set guifont=Droid\ Sans\ Mono\ 10
     elseif has("gui_win32") || has("gui_mac")
-        set guifont=Consolas:h11
+        set guifont=Consolas:h10
     endif
 
-    set lines=50                " height = 50 lines
-    set columns=120             " width = 120 columns
+    set lines=30
+    set columns=85
     set selectmode=mouse,key,cmd
     set cursorline              " high light cursor line
     colorscheme evening
@@ -159,9 +141,6 @@ if has("autocmd")
     augroup END
     " Handle .md file correctly(Vim set filetype to Modula 2 by default).
     autocmd BufRead,BufNewFile *.md set filetype=markdown
-    " Enable javacomplete plugin
-    autocmd Filetype java setlocal omnifunc=javacomplete#Complete
-
 endif " has("autocmd")
 
 " Convenient command to see the difference between the current buffer and the
