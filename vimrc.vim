@@ -9,7 +9,7 @@ set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-perl/vim-perl' " Support for Perl 6
 
 " All of your Plugins must be added before the following line
@@ -20,7 +20,7 @@ filetype plugin indent on
 
 " show English messages ignoring system language.
 if has("unix")
-    language C.UTF-8
+    language en_US.UTF-8
 elseif has("win32")
     language english
 endif
@@ -164,3 +164,6 @@ if !exists(":DiffOrig")
         \ | wincmd p | diffthis
 endif
 
+" This will make YCM and Eclim play nice
+let g:EclimCompletionMethod = 'omnifunc'
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py'
